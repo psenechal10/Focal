@@ -1,0 +1,19 @@
+{% set title_modifiers = title_modifiers|default([]) %}
+{% set title_modifierList = {
+    'h1': 'title--h1',
+    'h2': 'title--h2',
+    'h3': 'title--h3',
+} %}
+
+{% set title_content = title_content|default('') %}
+
+
+    <h1 class="title
+        {% for variant in title_modifiers %}
+                {% if title_modifierList[variant] is defined %}
+                        {{ title_modifierList[variant] }}
+                {% endif %}
+        {% endfor %}">
+
+        {{ title_content }}
+    </h1>

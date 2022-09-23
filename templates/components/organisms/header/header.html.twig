@@ -1,0 +1,29 @@
+{% set logo__img =  logo__img|default('')%}
+
+<header x-data>
+    <div class="header__item relative">
+        <div class="absolute top-0 right-4 sm:left-4">
+            <div class=" flex lg:hidden menu-btn" x-on:click="() => {
+        $el.closest('header').classList.toggle('is-open');
+        $el.classList.toggle('open')
+        }">
+                <div class="menu-btn__burger"></div>
+            </div>
+        </div>
+        <div class="navbar-brand">
+            <img src="{{ logo__img }}" alt="">
+            <p>FO<span>CAL</span></p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact Me</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,18 @@
+blockquote{
+  color: #919191;
+  font-style: italic;
+  text-align: center;
+  font-size: 18px;
+}
+
+@media (max-width: 1024px){
+  blockquote{
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px){
+  blockquote{
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,40 @@
+@import "custom.scss";
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.intro{
+  margin: 0 8px;
+}
+
+#about{
+  background: #f2f2f1;
+
+  .about__item{
+    width: 80%;
+    margin: 0 auto;
+
+    p{
+      margin-bottom: 36px;
+      &:last-child{
+        margin-bottom: 75px;
+      }
+    }
+
+    .title--h2{
+      margin-top: 50px;
+    }
+  }
+}
+
+
+
+@media (max-width: 1024px){
+  #about{
+    .about__item{
+      margin: 0 auto;
+    }
+  }
+}
+

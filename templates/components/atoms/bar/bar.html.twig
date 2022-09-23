@@ -1,0 +1,22 @@
+{% set bar_content = bar_content|default('') %}
+
+{% set bar_modifiers = bar_modifiers|default([]) %}
+{% set bar_modifierList = {
+    'PhotoShop': 'photoshop',
+    'Illustrator': 'illustrator',
+    'InDesign': 'indesign',
+    'AdobeXD': 'xd',
+} %}
+
+<div class="bar
+        {% for variant in bar_modifiers %}
+                {% if bar_modifierList[variant] is defined %}
+                        {{ bar_modifierList[variant] }}
+                {% endif %}
+        {% endfor %}">
+    <div class="fill" style="width: {{ bar_content }}%">
+        <span>
+            {{ bar_content }}%
+        </span>
+    </div>
+</div>

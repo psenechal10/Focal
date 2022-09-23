@@ -1,0 +1,25 @@
+{% set title_content = title_content|default('') %}
+{% set paragraph_content = paragraph_content|default('') %}
+{% set tag_content = tag_content|default('') %}
+{% set paragraph_content2 = paragraph_content2|default('') %}
+
+<div class="mb-8 lg:mb-20">
+    {% include '@AppFront/components/atoms/title/title.html.twig' with {
+        title_modifiers: ['h3'],
+        title_content: title_content,
+    } %}
+
+    {% include '@AppFront/components/atoms/paragraph/paragraph.html.twig' with {
+        paragraph_content: paragraph_content
+    } %}
+
+    {% include '@AppFront/components/atoms/tag/tag.html.twig' with {
+        tag_content: tag_content
+    } %}
+
+    <hr>
+
+    {% include '@AppFront/components/atoms/paragraph/paragraph.html.twig' with {
+        paragraph_content: paragraph_content2
+    } %}
+</div>

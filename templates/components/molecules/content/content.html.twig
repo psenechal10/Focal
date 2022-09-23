@@ -1,0 +1,16 @@
+{% set title_content = title_content|default('') %}
+{% set paragraph_content = paragraph_content|default('') %}
+
+<div>
+    {% include '@AppFront/components/atoms/title/title.html.twig' with {
+        title_modifiers: ['h2'],
+        title_content: title_content
+    } %}
+
+    <p>
+        {% include '@AppFront/components/atoms/paragraph/paragraph.html.twig' with {
+            paragraph_content:  paragraph_content
+        } %}
+    </p>
+
+</div>

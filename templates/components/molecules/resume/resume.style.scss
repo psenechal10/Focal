@@ -1,0 +1,15 @@
+.resume-wrapper{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .title--h2{
+    text-align: center;
+  }
+  p{
+    text-align: center;
+    margin: 15px 0;
+  }
+
+}

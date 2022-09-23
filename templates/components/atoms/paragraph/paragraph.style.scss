@@ -1,0 +1,17 @@
+.paragraph{
+  color: #919191;
+}
+
+@media (max-width: 1024px){
+
+  .paragraph{
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px){
+
+  .paragraph{
+    font-size: 13px;
+  }
+}

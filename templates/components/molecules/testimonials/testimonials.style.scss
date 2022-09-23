@@ -1,0 +1,19 @@
+.testimonials-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  figcaption{
+    margin: 25px 0 75px 0;
+  }
+
+  .indicators{
+    display: flex;
+
+    button{
+
+      margin: 0 4px;
+    }
+  }
+}

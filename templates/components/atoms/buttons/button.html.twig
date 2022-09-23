@@ -1,0 +1,26 @@
+{% set button_modifiers = button_modifiers|default([]) %}
+{% set button_modifierList = {
+    'light': 'button--light',
+    'green': 'button--green',
+    'dark': 'button--dark',
+    'indicator': 'button--indicator',
+} %}
+{% set button_class = button_class|default('') %}
+
+{% set button_content = button_content|default('') %}
+{% set button_attr = button_attr|default({}) %}
+
+<button
+        {% for attr in button_attr|keys %}
+
+            {{ attr }}="{{ button_attr[attr] }}"
+        {% endfor %}
+        class="button {{ button_class }}
+        {% for variant in button_modifiers %}
+                {% if button_modifierList[variant] is defined %}
+                        {{ button_modifierList[variant] }}
+                {% endif %}
+        {% endfor %}">
+
+        {{ button_content }}
+</button>

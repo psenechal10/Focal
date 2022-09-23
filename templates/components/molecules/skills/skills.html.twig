@@ -1,0 +1,23 @@
+<div class="skills-item--1">
+    {% include '@AppFront/components/atoms/title/title.html.twig' with {
+        title_modifiers: ['h2'],
+        title_content: 'My Skills'
+    } %}
+
+    <p>
+        {% include '@AppFront/components/atoms/paragraph/paragraph.html.twig' with {
+            paragraph_content: 'Lorem ipsum dolor sit amet, ea doming epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est, eam dicam soluta ei. Vel dicam vivendo accusata ei, cum ne periculis molestiae pri. '
+        } %}
+    </p>
+
+    <p>
+        {% include '@AppFront/components/atoms/paragraph/paragraph.html.twig' with {
+            paragraph_content: 'Lorem ipsum dolor sit amet, ea doming epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est.'
+        } %}
+    </p>
+
+    {%  include '@AppFront/components/atoms/buttons/button.html.twig' with {
+        button_modifiers: ['green'],
+        button_content: 'Contact Me'
+    } %}
+</div>

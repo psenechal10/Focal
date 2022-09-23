@@ -1,0 +1,260 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} FOCAL {% endblock %}
+{% block body %}
+
+    <button class="btn--top" x-data x-on:click="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <section id="intro" class="w-4/5 mx-auto m-24 ">
+        <div class="grid grid gap-x-12 grid-cols-1  lg:grid-cols-3 md:grid-cols-2">
+            {% for item in data %}
+                <div class="mb-16 lg:mb-0">
+                    {% include '@AppFront/components/molecules/content/content.html.twig' with {
+                        title_modifiers: ['h2'],
+                        title_content: item.title,
+                        paragraph_content: item.content
+                    } %}
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="about" class="grid grid-cols-12 ">
+        <div class="flex items-center justify-center col-span-12 mb-24 lg:col-span-5 lg:mb-0 lg:justify-start">
+            <img src="{{ asset('build/images/me.asset.jpg') }}" alt="">
+        </div>
+        <div class="flex justify-center items-center flex-col col-span-12 lg:col-span-7 md:items-center">
+            <div class="about__item ">
+                {% include '@AppFront/components/atoms/title/title.html.twig' with {
+                    title_modifiers: ['h2'],
+                    title_content: 'About Me',
+                } %}
+                {% include '@AppFront/components/atoms/paragraph/paragraph.html.twig' with {
+                    paragraph_content: 'Lorem ipsum dolor sit amet, ea doming epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est, eam dicam soluta ei. Vel dicam vivendo accusata ei, cum ne periculis molestiae pri.',
+                } %}
+
+                {% include '@AppFront/components/atoms/paragraph/paragraph.html.twig' with {
+                    paragraph_content: 'Lorem ipsum dolor sit amet, ea doming epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est, eam dicam soluta ei.'
+                } %}
+            </div>
+            <div class="about__item">
+                <div class=" grid grid gap-x-9 grid-cols-1 grid-rows-4 md:grid-cols-2 grid-rows-2">
+                    {% for item in services %}
+                        <div>
+                            {% include '@AppFront/components/molecules/services/services.html.twig' with {
+                                title_modifiers: ['h3'],
+                                title_content: item.title,
+                                paragraph_content:  item.content,
+                                icon_name: item.icon
+                            } %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="grid grid-cols-1 w-4/5 mx-auto gap-x-32 my-32 lg:grid-cols-2">
+        <div class="mb-24 lg:mb-0 skills__item">
+            {% include '@AppFront/components/molecules/skills/skills.html.twig' %}
+        </div>
+        <div>
+            {% for item in skills %}
+                <div>
+                    {% include '@AppFront/components/molecules/skills-item/skills-item.html.twig' with {
+                        title_content: item.title,
+                        bar_content: item.bar_content
+                    } %}
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="resume" class="bg-[#f2f2f1] relative">
+        <div class="w-3/5 mx-auto py-32">
+            {% include '@AppFront/components/molecules/resume/resume.html.twig' %}
+        </div>
+        <div class="triangle">
+
+        </div>
+    </section>
+
+    <section id="education" class="grid grid-cols-1 lg:grid-cols-2 gap-x-32 w-4/5 mx-auto">
+        <div class="my-8 lg:my-16">
+            {% include '@AppFront/components/molecules/content/content.html.twig' with {
+                title_content: 'My Education',
+                paragraph_content: 'Lorem ipsum dolor sit amet, ea doming epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est, eam dicam soluta ei. Vel dicam vivendo accusata ei, cum ne periculis molestiae pri.'
+            } %}
+            {% include '@AppFront/components/atoms/paragraph/paragraph.html.twig' with {
+                paragraph_content: 'Lorem ipsum dolor sit amet, ea doming epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est.'
+            } %}
+        </div>
+
+        <div class="my-8 lg:my-32">
+            {% for items in education %}
+                {% include '@AppFront/components/molecules/education-item/education-item.html.twig' with {
+                    title_content: items.title,
+                    paragraph_content: items.paragraph1,
+                    tag_content: items.tag,
+                    paragraph_content2: items.paragraph2
+                } %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <hr class="w-4/5 mx-auto ">
+
+    <section id="experience" class="grid grid-cols-1 lg:grid-cols-2 gap-x-32 w-4/5 mx-auto">
+        <div class="my-8 lg:my-16">
+            {% include '@AppFront/components/molecules/content/content.html.twig' with {
+                title_content: 'Work Experience',
+                paragraph_content: 'Lorem ipsum dolor sit amet, ea doming epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est, eam dicam soluta ei. Vel dicam vivendo accusata ei, cum ne periculis molestiae pri.'
+            } %}
+            {% include '@AppFront/components/atoms/paragraph/paragraph.html.twig' with {
+                paragraph_content: 'Lorem ipsum dolor sit amet, ea doming epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est.'
+            } %}
+        </div>
+
+        <div class="my-8 lg:my-32">
+            {% for items in experience %}
+                {% include '@AppFront/components/molecules/education-item/education-item.html.twig' with {
+                    title_content: items.title,
+                    paragraph_content: items.paragraph1,
+                    tag_content: items.tag,
+                    paragraph_content2: items.paragraph2
+                } %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="testimonials" class="bg-[#f2f2f1] mb-28 py-24" x-data="{activeIndex: 0}">
+        <div class="w-11/12 lg:w-3/5 mx-auto overflow-x-hidden">
+            <div class="swiper" data-ref="swiper" data-options="{{ {
+                slidesPerView: 1,
+            }|json_encode }}">
+                <div class="swiper-wrapper">
+                    {% for items in testimonials %}
+                        <div class="swiper-slide" >
+                            {% include '@AppFront/components/molecules/testimonials/testimonials.html.twig' with {
+                                blockquote_content: items.content,
+                                figcaption_content: items.cite
+                            } %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+
+
+    </section>
+
+    <section id="portfolio" class="mb-28" x-data="{activeFilters: []}">
+        <div class="w-4/5 mx-auto text--portfolio ">
+            {% include'@AppFront/components/molecules/content/content.html.twig' with {
+                title_content: 'Portfolio',
+                paragraph_content: 'Lorem ipsum dolor sit amet, ea doming epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est, eam dicam soluta ei. Vel dicam vivendo accusata ei, cum ne periculis molestiae pri. '
+
+            } %}
+        </div>
+        <div class="w-11/12 mx-auto grid grid-cols-1 grid-rows-1 md:grid-rows-2 md:grid-cols-2 gap-8 lg:grid-cols-3 lg:grid-rows-3  max-w-[1048px]">
+            <div class="flex justify-center items-center "
+                 style="width: 100%; height: 300px;  margin: 0 auto; max-width: 366px; background: #252e30;">
+
+                {% set filters = [
+                    {
+                        id: 1,
+                        value: 'Themes',
+                    },
+                    {
+                        id: 2,
+                        value: 'Icons',
+                    },
+                    {
+                        id: 3,
+                        value: 'Patterns',
+                    },
+                    {
+                        id: 4,
+                        value: 'Mockups',
+                    },
+                    {
+                        id: 5,
+                        value: 'UI Kits',
+                    },] %}
+                <div class="nav__portfolio">
+                    <p>Filter By Category</p>
+                    <ul>
+                        <li :class="!activeFilters.length ? '!text-white' : ''" @click="activeFilters = []">
+                            All
+                        </li>
+                        {% for filter in filters %}
+                            <li
+                                    :class="activeFilters.includes({{ filter.id }}) ? '!text-white' : ''"
+                                    @click="activeFilters = [{{ filter.id }}]"
+                            >
+                                {{ filter.value }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            {% set images = [
+                {
+                    types: [1],
+                    path: asset('build/images/img00.asset.jpg'),
+                },
+                {
+                    types: [4],
+                    path: asset('build/images/img01.asset.jpg'),
+                },
+                {
+                    types: [1],
+                    path: asset('build/images/img02.asset.jpg'),
+                },
+                {
+                    types: [2],
+                    path: asset('build/images/img03.asset.jpg'),
+                },
+                {
+                    types: [3],
+                    path: asset('build/images/img04.asset.jpg'),
+                },
+                {
+                    types: [4],
+                    path: asset('build/images/img05.asset.jpg'),
+                },
+                {
+                    types: [5],
+                    path: asset('build/images/img06.asset.jpg'),
+                },
+                {
+                    types: [1],
+                    path: asset('build/images/img07.asset.jpg'),
+                },
+    ] %}
+
+            {% for image in images %}
+                <div x-transition:enter="transition ease-out duration-300"
+                     x-transition:enter-start="opacity-0 scale-90"
+                     x-transition:enter-end="opacity-100 scale-100"
+                     x-transition:leave="transition ease-in duration-300"
+                     x-transition:leave-start="opacity-100 scale-100"
+                     x-transition:leave-end="opacity-0 scale-90"
+                     x-show="activeFilters.length === 0 || [{{ image.types|join(',') }}].some(o => activeFilters.includes(o))">
+                    {% include '@AppFront/components/templates/clickableWrapper.html.twig' with {
+                clickableWrapper_image: image.path,
+                } %}
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+
+
+{% endblock %}
+

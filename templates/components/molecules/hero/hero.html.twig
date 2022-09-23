@@ -1,0 +1,34 @@
+{% set clickableWrapper_image1 = clickableWrapper_image1|default('https://via.placeholder.com/1000') %}
+{% set clickableWrapper_image2 = clickableWrapper_image2|default('https://via.placeholder.com/1000') %}
+{% set clickableWrapper_image3 = clickableWrapper_image3|default('https://via.placeholder.com/1000') %}
+
+
+
+<div id="hero" class="hero">
+    <div class="hero__content">
+        {% include '@AppFront/components/atoms/title/title.html.twig' with {
+            title_modifiers: ['h1'],
+            title_content: 'Front-end developer'
+        } %}
+
+        {% include '@AppFront/components/atoms/buttons/button.html.twig' with {
+
+            button_modifiers: ['light'],
+            button_content: 'Learn More'
+        } %}
+    </div>
+    <div class="hero__wrapper">
+        <div class="swiper" data-ref="swiper" data-options='{{ {
+            slidesPerView: 1,
+            direction: "vertical",
+        }|json_encode }}'>
+            <div class="swiper-wrapper">
+                    <div class="swiper-slide hero__bg1"  style="background-image: url({{ clickableWrapper_image1 }})"></div>
+                    <div class="swiper-slide hero__bg2"  style="background-image: url({{ clickableWrapper_image2 }})"></div>
+                    <div class="swiper-slide hero__bg3"  style="background-image: url({{ clickableWrapper_image3 }})"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+</div>

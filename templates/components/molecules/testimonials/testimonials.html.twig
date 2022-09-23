@@ -1,0 +1,22 @@
+{% set blockquote_content = blockquote_content|default('') %}
+{% set figcaption_content =figcaption_content|default('') %}
+
+{% set testimonials_class = testimonials_class|default('') %}
+{% set testimonials_attr = testimonials_attr|default({}) %}
+
+
+<div {% for attr in testimonials_attr|keys %}
+               {{ attr }}="{{ testimonials_attr[attr] }}"
+            {% endfor %}
+               class="  testimonials-wrapper {{ testimonials_class }} ">
+
+    {% include '@AppFront/components/atoms/blockquote/blockquote.html.twig' with {
+        blockquote_content: blockquote_content
+    } %}
+
+    {% include '@AppFront/components/atoms/figcaption/figcaption.html.twig' with {
+        figcaption_content: figcaption_content
+    } %}
+
+</div>
+
