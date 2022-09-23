@@ -254,7 +254,75 @@
         </div>
     </section>
 
+    <section id="contact" class="bg-[#252e30] py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-2 w-[80%] mx-auto gap-x-24">
+            <div>
+                {% include '@AppFront/components/molecules/content/content.html.twig' with {
+                    title_content: 'Contact Me',
+                    paragraph_content: 'Lorem ipsum dolor sit amet, ea doming epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est, eam dicam soluta ei. Vel dicam vivendo accusata ei.'
 
+                } %}
+                <div class="my-8">
+                    {% include '@AppFront/components/atoms/paragraph/paragraph.html.twig' with {
+                        paragraph_content: '122 33rd Street East'
+                    } %}
+                    {% include '@AppFront/components/atoms/paragraph/paragraph.html.twig' with {
+                        paragraph_content: 'Saskatoon, SK'
+                    } %}
+                    {% include '@AppFront/components/atoms/paragraph/paragraph.html.twig' with {
+                        paragraph_content: 'S7K 1R9'
+                    } %}
+                </div>
+                <div>
+                    <div class="flex">
+                        <span class="text-white pr-8">Email:</span>
+                        {% include '@AppFront/components/atoms/paragraph/paragraph.html.twig' with {
+                            paragraph_content: 'Info@focal.com'
+                        } %}
+                    </div>
+
+                    <div class="flex mb-16 lg:mb-0">
+                        <span class="text-white pr-8">Phone:</span>
+                        {% include '@AppFront/components/atoms/paragraph/paragraph.html.twig' with {
+                            paragraph_content: '1-306-222-2323'
+                        } %}
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="mb-8">
+                    {% include '@AppFront/components/atoms/label/label.html.twig' with {
+                        label_content: 'Name'
+                    } %}
+                    {% include '@AppFront/components/atoms/input/input.html.twig' %}
+                </div>
+
+                <div class="mb-8">
+                    {% include '@AppFront/components/atoms/label/label.html.twig' with {
+                        label_content: 'Email Address'
+                    } %}
+                    {% include '@AppFront/components/atoms/input/input.html.twig' %}
+                </div>
+
+                <div class="mb-8">
+                    {% include '@AppFront/components/atoms/label/label.html.twig' with {
+                        label_content: 'Message'
+                    } %}
+                    {% include '@AppFront/components/atoms/textarea/textarea.html.twig' %}
+                </div>
+
+                {% include '@AppFront/components/atoms/buttons/button.html.twig' with {
+                    button_modifiers: ['dark'],
+                    button_content: 'Contact Me'
+                } %}
+            </div>
+        </div>
+    </section>
+
+    <section id="footer">
+        {% include '@AppFront/components/organisms/footer/footer.html.twig' %}
+    </section>
 
 {% endblock %}
 
